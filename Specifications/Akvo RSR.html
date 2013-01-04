@@ -1,0 +1,1921 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0055)file://localhost/Users/adriancollier/Akvo%20RSR.mm.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Akvo RSR</title>
+<style type="text/css">
+    li { list-style: none;  margin: 0; }
+    p { margin: 0; }
+    span.foldopened { color: white; font-size: xx-small;
+    border-width: 1; font-family: monospace; padding: 0em 0.25em 0em 0.25em; background: #e0e0e0;
+    VISIBILITY: visible;
+    cursor:pointer; }
+
+
+    span.foldclosed { color: #666666; font-size: xx-small;
+    border-width: 1; font-family: monospace; padding: 0em 0.25em 0em 0.25em; background: #e0e0e0;
+    VISIBILITY: hidden;
+    cursor:pointer; }
+
+    span.foldspecial { color: #666666; font-size: xx-small; border-style: none solid solid none;
+    border-color: #CCCCCC; border-width: 1; font-family: sans-serif; padding: 0em 0.1em 0em 0.1em; background: #e0e0e0;
+    cursor:pointer; }
+
+    span.l { color: red; font-weight: bold; }
+
+    a.mapnode:link {text-decoration: none; color: black; }
+    a.mapnode:visited {text-decoration: none; color: black; }
+    a.mapnode:active {text-decoration: none; color: black; }
+    a.mapnode:hover {text-decoration: none; color: black; background: #eeeee0; }
+
+</style>
+<!-- ^ Position is not set to relative / absolute here because of Mozilla -->
+</head>
+<body>
+
+<script type="text/javascript">
+   // Here we implement folding. It works fine with MSIE5.5, MSIE6.0 and
+   // Mozilla 0.9.6.
+
+   if (document.layers) {
+      //Netscape 4 specific code
+      pre = 'document.';
+      post = ''; }
+   if (document.getElementById) {
+      //Netscape 6 specific code
+      pre = 'document.getElementById("';
+      post = '").style'; }
+   if (document.all) {
+      //IE4+ specific code
+      pre = 'document.all.';
+      post = '.style'; }
+
+function layer_exists(layer) {
+   try {
+      eval(pre + layer + post);
+      return true; }
+   catch (error) {
+      return false; }}
+
+function show_layer(layer) {
+   eval(pre + layer + post).position = 'relative'; 
+   eval(pre + layer + post).visibility = 'visible'; }
+
+function hide_layer(layer) {
+   eval(pre + layer + post).visibility = 'hidden';
+   eval(pre + layer + post).position = 'absolute'; }
+
+function hide_folder(folder) {
+    hide_folding_layer(folder)
+    show_layer('show'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+}
+
+function show_folder(folder) {
+    // Precondition: all subfolders are folded
+
+    show_layer('hide'+folder);
+    hide_layer('show'+folder);
+    show_layer('fold'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+
+    var i;
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       show_layer('show'+folder+'_'+i); }
+}
+function show_folder_completely(folder) {
+    // Precondition: all subfolders are folded
+
+    show_layer('hide'+folder);
+    hide_layer('show'+folder);
+    show_layer('fold'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+
+    var i;
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       show_folder_completely(folder+'_'+i); }
+}
+
+
+
+function hide_folding_layer(folder) {
+   var i;
+   for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       hide_folding_layer(folder+'_'+i); }
+
+   hide_layer('hide'+folder);
+   hide_layer('show'+folder);
+   hide_layer('fold'+folder);
+
+   scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+}
+
+function fold_document() {
+   var i;
+   var folder = '1';
+   for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       hide_folder(folder+'_'+i); }
+}
+
+function unfold_document() {
+   var i;
+   var folder = '1';
+   for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       show_folder_completely(folder+'_'+i); }
+}
+
+</script>
+<span class="foldspecial" onclick="fold_document()">All +</span>
+<span class="foldspecial" onclick="unfold_document()">All -</span>
+<p>Akvo RSR
+</p><ul><li><span id="show1_1" class="foldclosed" onclick="show_folder(&#39;1_1&#39;)" style="position: relative; visibility: visible;">+</span> <span id="hide1_1" class="foldopened" onclick="hide_folder(&#39;1_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Features
+<ul id="fold1_1" style="position: absolute; visibility: hidden;"><li><span id="show1_1_1" class="foldclosed" onclick="show_folder(&#39;1_1_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_1" class="foldopened" onclick="hide_folder(&#39;1_1_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Visualising Development Projects
+<ul id="fold1_1_1" style="position: absolute; visibility: hidden;"><li><span id="show1_1_1_1" class="foldclosed" onclick="show_folder(&#39;1_1_1_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_1_1" class="foldopened" onclick="hide_folder(&#39;1_1_1_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Project Pages
+<ul id="fold1_1_1_1" style="position: absolute; visibility: hidden;"><li>Project pages are public pages on the internet
+
+</li>
+<li>Projects contain information about individual projects.
+
+</li>
+<li>Projects can be planned, being executed or completed.
+
+</li>
+<li>Projects can contain a mix of text and image information.
+
+</li>
+<li>Projects can be followed by use of a unique RSS feed.
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_2" class="foldclosed" onclick="show_folder(&#39;1_1_1_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_1_2" class="foldopened" onclick="hide_folder(&#39;1_1_1_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Funding Pages
+<ul id="fold1_1_1_2" style="position: absolute; visibility: hidden;"><li>Funding pages are pulic pages on the internet.
+
+</li>
+<li>Funding pages show where funds to sustain a project are/were sourced.
+
+</li>
+<li>Funding pages show where the projects funds are intended to be spent.
+
+</li>
+<li>Funding pages can contain links to Governmental funding information via IATI Identifiers
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_1_3" class="foldclosed" onclick="show_folder(&#39;1_1_1_3&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_1_3" class="foldopened" onclick="hide_folder(&#39;1_1_1_3&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Organisation Pages
+<ul id="fold1_1_1_3" style="position: absolute; visibility: hidden;"><li>Organisation pages are public pages on the internet.
+
+</li>
+<li>Organisation pages show the details of organisations working on one or more Akvo RSR Projects.
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_2" class="foldclosed" onclick="show_folder(&#39;1_1_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_2" class="foldopened" onclick="hide_folder(&#39;1_1_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Displaying Geo-Data
+<ul id="fold1_1_2" style="position: absolute; visibility: hidden;"><li><span id="show1_1_2_1" class="foldclosed" onclick="show_folder(&#39;1_1_2_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_2_1" class="foldopened" onclick="hide_folder(&#39;1_1_2_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Maps
+<ul id="fold1_1_2_1" style="position: absolute; visibility: hidden;"><li><span id="show1_1_2_1_1" class="foldclosed" onclick="show_folder(&#39;1_1_2_1_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_2_1_1" class="foldopened" onclick="hide_folder(&#39;1_1_2_1_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Platform
+<ul id="fold1_1_2_1_1" style="position: absolute; visibility: hidden;"><li>Google Maps
+
+</li>
+<li>OpenStreetMap
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_2_1_2" class="foldclosed" onclick="show_folder(&#39;1_1_2_1_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_2_1_2" class="foldopened" onclick="hide_folder(&#39;1_1_2_1_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Locations
+<ul id="fold1_1_2_1_2" style="position: absolute; visibility: hidden;"><li><span id="show1_1_2_1_2_1" class="foldclosed" onclick="show_folder(&#39;1_1_2_1_2_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_2_1_2_1" class="foldopened" onclick="hide_folder(&#39;1_1_2_1_2_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Project Page Maps
+<ul id="fold1_1_2_1_2_1" style="position: absolute; visibility: hidden;"><li>Displayed on the Project page
+
+</li>
+<li>Should contain pins for all Project locations
+
+</li>
+<li>Should be zoomed to show the local area and the pins
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_2_1_2_2" class="foldclosed" onclick="show_folder(&#39;1_1_2_1_2_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_2_1_2_2" class="foldopened" onclick="hide_folder(&#39;1_1_2_1_2_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Partnersite Maps
+<ul id="fold1_1_2_1_2_2" style="position: absolute; visibility: hidden;"><li>Displayed on the Partnersite landing page
+
+</li>
+<li><span id="show1_1_2_1_2_2_1" class="foldclosed" onclick="show_folder(&#39;1_1_2_1_2_2_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_2_1_2_2_1" class="foldopened" onclick="hide_folder(&#39;1_1_2_1_2_2_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Displaying of pins
+<ul id="fold1_1_2_1_2_2_1" style="position: absolute; visibility: hidden;"><li>Could show only Project Primary Locations
+
+</li>
+<li>Could show both Primary and Secondary Project Locations
+
+</li>
+<li>Could show organisation locations
+
+</li>
+<li>Different types of pins should be visually differentiated
+
+</li>
+<li>Setting of pins-set within Partnersite admin
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_2_1_2_3" class="foldclosed" onclick="show_folder(&#39;1_1_2_1_2_3&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_2_1_2_3" class="foldopened" onclick="hide_folder(&#39;1_1_2_1_2_3&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Global Maps
+<ul id="fold1_1_2_1_2_3" style="position: absolute; visibility: hidden;"><li>Displayed on the Homepage and Global Map Pages
+
+</li>
+<li>Should show only Primary locations of Projects OR Organisations
+
+</li>
+<li>Zoom level should visualise the entire world
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_2_1_3" class="foldclosed" onclick="show_folder(&#39;1_1_2_1_3&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_2_1_3" class="foldopened" onclick="hide_folder(&#39;1_1_2_1_3&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Types
+<ul id="fold1_1_2_1_3" style="position: absolute; visibility: hidden;"><li><span id="show1_1_2_1_3_1" class="foldclosed" onclick="show_folder(&#39;1_1_2_1_3_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_2_1_3_1" class="foldopened" onclick="hide_folder(&#39;1_1_2_1_3_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Project Maps
+<ul id="fold1_1_2_1_3_1" style="position: absolute; visibility: hidden;"><li>Maps showing only Project locations
+
+</li>
+<li>Zoom level should be auto-adjusted to display clearly both location and pins
+
+</li>
+<li>Should be able to display both Primary and Secondary locations &nbsp;- configurable
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_2_1_3_2" class="foldclosed" onclick="show_folder(&#39;1_1_2_1_3_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_2_1_3_2" class="foldopened" onclick="hide_folder(&#39;1_1_2_1_3_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Organisation Maps
+<ul id="fold1_1_2_1_3_2" style="position: absolute; visibility: hidden;"><li>Maps showing only Organisation locations
+
+</li>
+<li>Zoom level should be auto-adjusted to display clearly both locations and pins
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_2_1_3_3" class="foldclosed" onclick="show_folder(&#39;1_1_2_1_3_3&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_2_1_3_3" class="foldopened" onclick="hide_folder(&#39;1_1_2_1_3_3&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Combination Maps
+<ul id="fold1_1_2_1_3_3" style="position: absolute; visibility: hidden;"><li>Maps showoing a combination of both Projects and Organisations
+
+</li>
+<li>Zoom level should be auto-adjusted to display clearly both locations and pins
+
+</li>
+<li>Configurable to display Primary and Secondary locations
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_2_1_3_4" class="foldclosed" onclick="show_folder(&#39;1_1_2_1_3_4&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_2_1_3_4" class="foldopened" onclick="hide_folder(&#39;1_1_2_1_3_4&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Data Visualisation Maps
+<ul id="fold1_1_2_1_3_4" style="position: absolute; visibility: hidden;"><li>Maps showing additional data
+
+</li>
+<li>Some data may be obtained externally to RSR
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Data Visualisations
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_3" class="foldclosed" onclick="show_folder(&#39;1_1_3&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_3" class="foldopened" onclick="hide_folder(&#39;1_1_3&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Publishing Field Updates
+<ul id="fold1_1_3" style="position: absolute; visibility: hidden;"><li><span id="show1_1_3_1" class="foldclosed" onclick="show_folder(&#39;1_1_3_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_3_1" class="foldopened" onclick="hide_folder(&#39;1_1_3_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Creation
+<ul id="fold1_1_3_1" style="position: absolute; visibility: hidden;"><li><span id="show1_1_3_1_1" class="foldclosed" onclick="show_folder(&#39;1_1_3_1_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_3_1_1" class="foldopened" onclick="hide_folder(&#39;1_1_3_1_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Authentication
+<ul id="fold1_1_3_1_1" style="position: absolute; visibility: hidden;"><li><span id="show1_1_3_1_1_1" class="foldclosed" onclick="show_folder(&#39;1_1_3_1_1_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_3_1_1_1" class="foldopened" onclick="hide_folder(&#39;1_1_3_1_1_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+User Registration
+<ul id="fold1_1_3_1_1_1" style="position: absolute; visibility: hidden;"><li>Users must register before they are able to create updates
+
+</li>
+<li>Users must belong to an organisation linked to the project to be able to update
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_3_1_1_2" class="foldclosed" onclick="show_folder(&#39;1_1_3_1_1_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_3_1_1_2" class="foldopened" onclick="hide_folder(&#39;1_1_3_1_1_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Login
+<ul id="fold1_1_3_1_1_2" style="position: absolute; visibility: hidden;"><li>Users must have successfully logged in before creating updates
+
+</li>
+<li>Users can login on the Project Page or via the Admin interface
+
+</li>
+<li>The Login details will be applied to the Project Update record
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_3_1_2" class="foldclosed" onclick="show_folder(&#39;1_1_3_1_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_3_1_2" class="foldopened" onclick="hide_folder(&#39;1_1_3_1_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Text Formatting
+<ul id="fold1_1_3_1_2" style="position: absolute; visibility: hidden;"><li>Text entered into Projects and Updates should have a limited formatting set of options
+
+</li>
+<li>There should be a WYSIWYG editor for formatting text
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_3_2" class="foldclosed" onclick="show_folder(&#39;1_1_3_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_3_2" class="foldopened" onclick="hide_folder(&#39;1_1_3_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Editing
+<ul id="fold1_1_3_2" style="position: absolute; visibility: hidden;"><li><span id="show1_1_3_2_1" class="foldclosed" onclick="show_folder(&#39;1_1_3_2_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_3_2_1" class="foldopened" onclick="hide_folder(&#39;1_1_3_2_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Limits
+<ul id="fold1_1_3_2_1" style="position: absolute; visibility: hidden;"><li>Updates can only be edited for the first 30 minutes after creation
+
+</li>
+<li>Project Title is limited to 50 characters
+
+</li>
+<li>Photo Caption is limited to 75 characters
+
+</li>
+<li>Photo Credit is limited to 25 charcters
+
+</li>
+<li>Update Text is not limited
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_3_2_2" class="foldclosed" onclick="show_folder(&#39;1_1_3_2_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_3_2_2" class="foldopened" onclick="hide_folder(&#39;1_1_3_2_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Version Control
+<ul id="fold1_1_3_2_2" style="position: absolute; visibility: hidden;"><li><p>We currently store no version control on updates.
+</p><p>Updates should be recorded for each modification that is made.
+</p><p>Each version should be stored.
+</p><p>Previous versions should be visible to users with the permissions to see the update at the time the update is made.
+</p></li>
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_3_3" class="foldclosed" onclick="show_folder(&#39;1_1_3_3&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_3_3" class="foldopened" onclick="hide_folder(&#39;1_1_3_3&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Media
+<ul id="fold1_1_3_3" style="position: absolute; visibility: hidden;"><li><span id="show1_1_3_3_1" class="foldclosed" onclick="show_folder(&#39;1_1_3_3_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_3_3_1" class="foldopened" onclick="hide_folder(&#39;1_1_3_3_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Pictures
+<ul id="fold1_1_3_3_1" style="position: absolute; visibility: hidden;"><li><span id="show1_1_3_3_1_1" class="foldclosed" onclick="show_folder(&#39;1_1_3_3_1_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_3_3_1_1" class="foldopened" onclick="hide_folder(&#39;1_1_3_3_1_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Format
+<ul id="fold1_1_3_3_1_1" style="position: absolute; visibility: hidden;"><li>Photo should be in 4:3 ratio
+
+</li>
+<li>Photo needs to be in jpeg, gid or png
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_3_3_1_2" class="foldclosed" onclick="show_folder(&#39;1_1_3_3_1_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_3_3_1_2" class="foldopened" onclick="hide_folder(&#39;1_1_3_3_1_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+File Size
+<ul id="fold1_1_3_3_1_2" style="position: absolute; visibility: hidden;"><li>There should be a reasonable size limit on the photos (2MB)
+
+</li>
+<li>Thumbnails and other available sizes are created on file upload
+
+</li>
+<li>All size versions are stored
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_3_3_2" class="foldclosed" onclick="show_folder(&#39;1_1_3_3_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_3_3_2" class="foldopened" onclick="hide_folder(&#39;1_1_3_3_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Videos
+<ul id="fold1_1_3_3_2" style="position: absolute; visibility: hidden;"><li><span id="show1_1_3_3_2_1" class="foldclosed" onclick="show_folder(&#39;1_1_3_3_2_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_3_3_2_1" class="foldopened" onclick="hide_folder(&#39;1_1_3_3_2_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Compatibility
+<ul id="fold1_1_3_3_2_1" style="position: absolute; visibility: hidden;"><li>All videos should be hosted on a 3rd Party Video Hosting site
+
+</li>
+<li>RSR Supports YouTube, Vimeo &amp; Blip video embedding
+
+</li>
+<li>All URL possibilities from these hosting providers should be supported
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_3_3_2_2" class="foldclosed" onclick="show_folder(&#39;1_1_3_3_2_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_3_3_2_2" class="foldopened" onclick="hide_folder(&#39;1_1_3_3_2_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Limits
+<ul id="fold1_1_3_3_2_2" style="position: absolute; visibility: hidden;"><li>Videos must be publicly viewable
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_4" class="foldclosed" onclick="show_folder(&#39;1_1_4&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_4" class="foldopened" onclick="hide_folder(&#39;1_1_4&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Data Distribution
+<ul id="fold1_1_4" style="position: absolute; visibility: hidden;"><li><span id="show1_1_4_1" class="foldclosed" onclick="show_folder(&#39;1_1_4_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_4_1" class="foldopened" onclick="hide_folder(&#39;1_1_4_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+API
+<ul id="fold1_1_4_1" style="position: absolute; visibility: hidden;"><li>Version Control
+
+</li>
+<li><span id="show1_1_4_1_1" class="foldclosed" onclick="show_folder(&#39;1_1_4_1_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_4_1_1" class="foldopened" onclick="hide_folder(&#39;1_1_4_1_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Read
+<ul id="fold1_1_4_1_1" style="position: absolute; visibility: hidden;"><li><span id="show1_1_4_1_1_1" class="foldclosed" onclick="show_folder(&#39;1_1_4_1_1_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_4_1_1_1" class="foldopened" onclick="hide_folder(&#39;1_1_4_1_1_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Format
+<ul id="fold1_1_4_1_1_1" style="position: absolute; visibility: hidden;"><li>IATI XML
+
+</li>
+<li>XML
+
+</li>
+<li>JSON
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_4_1_2" class="foldclosed" onclick="show_folder(&#39;1_1_4_1_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_4_1_2" class="foldopened" onclick="hide_folder(&#39;1_1_4_1_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Write
+<ul id="fold1_1_4_1_2" style="position: absolute; visibility: hidden;"><li><span id="show1_1_4_1_2_1" class="foldclosed" onclick="show_folder(&#39;1_1_4_1_2_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_4_1_2_1" class="foldopened" onclick="hide_folder(&#39;1_1_4_1_2_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Format
+<ul id="fold1_1_4_1_2_1" style="position: absolute; visibility: hidden;"><li>IATI IXML
+
+</li>
+<li>XML
+
+</li>
+<li>JSON
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_4_2" class="foldclosed" onclick="show_folder(&#39;1_1_4_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_4_2" class="foldopened" onclick="hide_folder(&#39;1_1_4_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+RSS Feeds
+<ul id="fold1_1_4_2" style="position: absolute; visibility: hidden;"><li><span id="show1_1_4_2_1" class="foldclosed" onclick="show_folder(&#39;1_1_4_2_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_4_2_1" class="foldopened" onclick="hide_folder(&#39;1_1_4_2_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Data Set
+<ul id="fold1_1_4_2_1" style="position: absolute; visibility: hidden;"><li><span id="show1_1_4_2_1_1" class="foldclosed" onclick="show_folder(&#39;1_1_4_2_1_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_4_2_1_1" class="foldopened" onclick="hide_folder(&#39;1_1_4_2_1_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Project Data
+<ul id="fold1_1_4_2_1_1" style="position: absolute; visibility: hidden;"><li>RSS Entries per project
+
+</li>
+<li>Grouped into project data sets
+
+</li>
+<li>All related table and field information included in entry
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_4_2_1_2" class="foldclosed" onclick="show_folder(&#39;1_1_4_2_1_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_4_2_1_2" class="foldopened" onclick="hide_folder(&#39;1_1_4_2_1_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Project Updates
+<ul id="fold1_1_4_2_1_2" style="position: absolute; visibility: hidden;"><li>RSS Entries per Update
+
+</li>
+<li>Grouped into update data sets
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_4_2_1_3" class="foldclosed" onclick="show_folder(&#39;1_1_4_2_1_3&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_4_2_1_3" class="foldopened" onclick="hide_folder(&#39;1_1_4_2_1_3&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Organisation Data
+<ul id="fold1_1_4_2_1_3" style="position: absolute; visibility: hidden;"><li>Not implemented
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_4_2_1_4" class="foldclosed" onclick="show_folder(&#39;1_1_4_2_1_4&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_4_2_1_4" class="foldopened" onclick="hide_folder(&#39;1_1_4_2_1_4&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Organisation Project Data
+<ul id="fold1_1_4_2_1_4" style="position: absolute; visibility: hidden;"><li>All Project Data related to a single Organisation
+
+</li>
+<li>RSS Entries per Project
+
+</li>
+<li>Grouped into project data sets
+
+</li>
+<li>All related table and field information included
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_4_2_1_5" class="foldclosed" onclick="show_folder(&#39;1_1_4_2_1_5&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_4_2_1_5" class="foldopened" onclick="hide_folder(&#39;1_1_4_2_1_5&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Organisation Updates
+<ul id="fold1_1_4_2_1_5" style="position: absolute; visibility: hidden;"><li>All Updates related to a single Organisation
+
+</li>
+<li>RSS Entries per Update
+
+</li>
+<li>Grouped into project data sets
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_4_2_1_6" class="foldclosed" onclick="show_folder(&#39;1_1_4_2_1_6&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_4_2_1_6" class="foldopened" onclick="hide_folder(&#39;1_1_4_2_1_6&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Partnersite Project Data
+<ul id="fold1_1_4_2_1_6" style="position: absolute; visibility: hidden;"><li>All Project Data related to a single Partnersite
+
+</li>
+<li>All links customised to direct to the Partnersite pages
+
+</li>
+<li>RSS Entries per Project
+
+</li>
+<li>Grouped into project data sets
+
+</li>
+<li>All related table and field information included
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_4_2_1_7" class="foldclosed" onclick="show_folder(&#39;1_1_4_2_1_7&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_4_2_1_7" class="foldopened" onclick="hide_folder(&#39;1_1_4_2_1_7&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Partnersite Updates
+<ul id="fold1_1_4_2_1_7" style="position: absolute; visibility: hidden;"><li>All update data related to a single Partnersite
+
+</li>
+<li>All links customised to direct to the Partnersite pages
+
+</li>
+<li>RSS Entries per Update
+
+</li>
+<li>Grouped into Update data sets
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_4_2_1_8" class="foldclosed" onclick="show_folder(&#39;1_1_4_2_1_8&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_4_2_1_8" class="foldopened" onclick="hide_folder(&#39;1_1_4_2_1_8&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Partnersite Organisation Data
+<ul id="fold1_1_4_2_1_8" style="position: absolute; visibility: hidden;"><li>Not implemented
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_4_2_2" class="foldclosed" onclick="show_folder(&#39;1_1_4_2_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_4_2_2" class="foldopened" onclick="hide_folder(&#39;1_1_4_2_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Content
+<ul id="fold1_1_4_2_2" style="position: absolute; visibility: hidden;"><li><span id="show1_1_4_2_2_1" class="foldclosed" onclick="show_folder(&#39;1_1_4_2_2_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_4_2_2_1" class="foldopened" onclick="hide_folder(&#39;1_1_4_2_2_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Projects
+<ul id="fold1_1_4_2_2_1" style="position: absolute; visibility: hidden;"><li>All data related to projects
+
+</li>
+<li>All fields and their content
+
+</li>
+<li>All related table data
+
+</li>
+<li>Images and media included
+
+</li>
+<li>Thumbnails and original size images transmitted
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_4_2_2_2" class="foldclosed" onclick="show_folder(&#39;1_1_4_2_2_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_4_2_2_2" class="foldopened" onclick="hide_folder(&#39;1_1_4_2_2_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Updates
+<ul id="fold1_1_4_2_2_2" style="position: absolute; visibility: hidden;"><li>All Update data
+
+</li>
+<li>All Update fields and their content
+
+</li>
+<li>Images and media included
+
+</li>
+<li>Thumbnails and original size images transmitted
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_4_2_2_3" class="foldclosed" onclick="show_folder(&#39;1_1_4_2_2_3&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_4_2_2_3" class="foldopened" onclick="hide_folder(&#39;1_1_4_2_2_3&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Organisations
+<ul id="fold1_1_4_2_2_3" style="position: absolute; visibility: hidden;"><li>No information currently available
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Caching
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_5" class="foldclosed" onclick="show_folder(&#39;1_1_5&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_5" class="foldopened" onclick="hide_folder(&#39;1_1_5&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Organisational Network
+<ul id="fold1_1_5" style="position: absolute; visibility: hidden;"><li><span id="show1_1_5_1" class="foldclosed" onclick="show_folder(&#39;1_1_5_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_5_1" class="foldopened" onclick="hide_folder(&#39;1_1_5_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Working Relationships
+<ul id="fold1_1_5_1" style="position: absolute; visibility: hidden;"><li>Visualisation of relationships between Organisations
+
+</li>
+<li>Publication of relationships
+
+</li>
+<li>Proof of working together
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_5_2" class="foldclosed" onclick="show_folder(&#39;1_1_5_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_5_2" class="foldopened" onclick="hide_folder(&#39;1_1_5_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Individual Connections
+<ul id="fold1_1_5_2" style="position: absolute; visibility: hidden;"><li>Visualisation of relationships between Individuals
+
+</li>
+<li>Connection of individuals cross-organisation borders
+
+</li>
+<li>Potential for Recommendations
+
+</li>
+<li>Personal professional track record
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_5_3" class="foldclosed" onclick="show_folder(&#39;1_1_5_3&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_5_3" class="foldopened" onclick="hide_folder(&#39;1_1_5_3&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Historical Data
+<ul id="fold1_1_5_3" style="position: absolute; visibility: hidden;"><li>Historical projects
+
+</li>
+<li>Historical relationships
+
+</li>
+<li>Completed projects
+
+</li>
+<li>Shared successes
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_1_6" class="foldclosed" onclick="show_folder(&#39;1_1_6&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_1_6" class="foldopened" onclick="hide_folder(&#39;1_1_6&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Fund Raising
+<ul id="fold1_1_6" style="position: absolute; visibility: hidden;"><li><p>It is possible for Partners to utilise Akvo RSR to raise funds for their projects
+</p><p>RSR has a donations module allowing for funds to be donated to projects
+</p><p>Donations can be made using PayPal or iDeal
+</p><p>Transaction charges are at the expense of the donor
+</p><p>Donors can choose to remain annonymous
+</p><p>Organisations can also donate directly to project via a Bank Transfer which is currently a manual process
+</p><p>Organisations can be publicised as a funding partner on projects they have contributed to
+</p></li>
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2" class="foldclosed" onclick="show_folder(&#39;1_2&#39;)" style="position: relative; visibility: visible;">+</span> <span id="hide1_2" class="foldopened" onclick="hide_folder(&#39;1_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Functionality
+<ul id="fold1_2" style="position: absolute; visibility: hidden;"><li><span id="show1_2_1" class="foldclosed" onclick="show_folder(&#39;1_2_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_1" class="foldopened" onclick="hide_folder(&#39;1_2_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+User Registration
+<ul id="fold1_2_1" style="position: absolute; visibility: hidden;"><li><span id="show1_2_1_1" class="foldclosed" onclick="show_folder(&#39;1_2_1_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_1_1" class="foldopened" onclick="hide_folder(&#39;1_2_1_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Requirements
+<ul id="fold1_2_1_1" style="position: absolute; visibility: hidden;"><li>New users need to be able to register on Akvo RSR
+
+</li>
+<li>Users must be assigned to a single Organisation
+
+</li>
+<li>Users are given a set of permissions based on pre-configured roles
+
+</li>
+<li>Users must have a valid email address
+
+</li>
+<li>New Users must be identified and validated by an Akvo or Organisation Administrator
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_1_2" class="foldclosed" onclick="show_folder(&#39;1_2_1_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_1_2" class="foldopened" onclick="hide_folder(&#39;1_2_1_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Process
+<ul id="fold1_2_1_2" style="position: absolute; visibility: hidden;"><li><p>New Users should first select an Orgnaisation they would like to register about
+</p><p><span id="show1_2_1_2_1" class="foldclosed" onclick="show_folder(&#39;1_2_1_2_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_1_2_1" class="foldopened" onclick="hide_folder(&#39;1_2_1_2_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Users then enter their personal information
+</p><ul id="fold1_2_1_2_1" style="position: absolute; visibility: hidden;"><li>Username
+
+</li>
+<li>Password
+
+</li>
+<li>First Name
+
+</li>
+<li>Last Name
+
+</li>
+<li>Email Address
+
+</li>
+
+</ul><p>A request is submitted for the account to be validated
+</p><p>An Organisation Administrator should validate the account, confirming they agree to the user having access
+</p><p>An Akvo Administrator can validate the account in the event that there is no relevant Organisation Administrator to perform this task
+</p><p>The User receives an email informing them that their account has been validated
+</p></li>
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_2" class="foldclosed" onclick="show_folder(&#39;1_2_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_2" class="foldopened" onclick="hide_folder(&#39;1_2_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+User Login
+<ul id="fold1_2_2" style="position: absolute; visibility: hidden;"><li><span id="show1_2_2_1" class="foldclosed" onclick="show_folder(&#39;1_2_2_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_2_1" class="foldopened" onclick="hide_folder(&#39;1_2_2_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Requirements
+<ul id="fold1_2_2_1" style="position: absolute; visibility: hidden;"><li>Users must be able to log in to Akvo RSR ftrom any page
+
+</li>
+<li>The same login should be used for both the Site and the Admin sections
+
+</li>
+<li>There should be a process to reset a users' password
+
+</li>
+<li>The login process should be secure
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_2_2" class="foldclosed" onclick="show_folder(&#39;1_2_2_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_2_2" class="foldopened" onclick="hide_folder(&#39;1_2_2_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Process
+<ul id="fold1_2_2_2" style="position: absolute; visibility: hidden;"><li>Visitors to the site should be presented with a login option on each page
+
+</li>
+<li>The Login option could be a link to a login page
+
+</li>
+<li>The Login option could be 2 fields and a submit button for Email/Username and Password
+
+</li>
+<li>If the correct details are submitted then the user should be logged into the system
+
+</li>
+<li>If the incorrect details are submitted the user should be requested to re-enter the details
+
+</li>
+<li>The user should also be given the option to reset their password at this stage
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_3" class="foldclosed" onclick="show_folder(&#39;1_2_3&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_3" class="foldopened" onclick="hide_folder(&#39;1_2_3&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Organisation Registration
+<ul id="fold1_2_3" style="position: absolute; visibility: hidden;"><li><span id="show1_2_3_1" class="foldclosed" onclick="show_folder(&#39;1_2_3_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_3_1" class="foldopened" onclick="hide_folder(&#39;1_2_3_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Requirements
+<ul id="fold1_2_3_1" style="position: absolute; visibility: hidden;"><li>Organisations should be real and existing organisations
+
+</li>
+<li>Organisations should have a valid Geolocation
+
+</li>
+<li>Organisations can upload a logo file to be displayed
+
+</li>
+<li>Details of a Contact Person are required
+
+</li>
+<li>An unlimited Description field can be completed
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_3_2" class="foldclosed" onclick="show_folder(&#39;1_2_3_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_3_2" class="foldopened" onclick="hide_folder(&#39;1_2_3_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Process
+<ul id="fold1_2_3_2" style="position: absolute; visibility: hidden;"><li><span id="show1_2_3_2_1" class="foldclosed" onclick="show_folder(&#39;1_2_3_2_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_3_2_1" class="foldopened" onclick="hide_folder(&#39;1_2_3_2_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Organisations can be linked directly to Akvo
+<ul id="fold1_2_3_2_1" style="position: absolute; visibility: hidden;"><li>Organisation agrees to use Akvo RSR
+
+</li>
+<li>Organisation sends information to Akvo Admin including Contact Information and Logo
+
+</li>
+<li>Organisation is created in Akvo RSR
+
+</li>
+<li>The first user is asked to sign up via Akvo.org to the Organisation
+
+</li>
+<li>User is approved by Akvo Admin and if appropriate is allocated the role of Organsiation Admin
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_3_2_2" class="foldclosed" onclick="show_folder(&#39;1_2_3_2_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_3_2_2" class="foldopened" onclick="hide_folder(&#39;1_2_3_2_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Organisations can also be linked via an existing RSR Partner
+<ul id="fold1_2_3_2_2" style="position: absolute; visibility: hidden;"><li><p><span id="show1_2_3_2_2_1" class="foldclosed" onclick="show_folder(&#39;1_2_3_2_2_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_3_2_2_1" class="foldopened" onclick="hide_folder(&#39;1_2_3_2_2_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Organisation is included within Project Plans of an Akvo RSR Partner
+</p><ul id="fold1_2_3_2_2_1" style="position: absolute; visibility: hidden;"><li>Usually a Support Partner
+
+</li>
+
+</ul><p>Organisation details are received from Support Partner
+</p><p>Akvo Admin create Organisation in RSR
+</p><p>Users are encouraged to sign up at Akvo.org within the new Organisation
+</p><p>New users are approved by Akvo Admin with confirmation acquired from Support Partner Admin if necessary
+</p></li>
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_4" class="foldclosed" onclick="show_folder(&#39;1_2_4&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4" class="foldopened" onclick="hide_folder(&#39;1_2_4&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Project Registration
+<ul id="fold1_2_4" style="position: absolute; visibility: hidden;"><li><span id="show1_2_4_1" class="foldclosed" onclick="show_folder(&#39;1_2_4_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_1" class="foldopened" onclick="hide_folder(&#39;1_2_4_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Requirements
+<ul id="fold1_2_4_1" style="position: absolute; visibility: hidden;"><li>All Projects must have a Title
+
+</li>
+<li><span id="show1_2_4_1_1" class="foldclosed" onclick="show_folder(&#39;1_2_4_1_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_1_1" class="foldopened" onclick="hide_folder(&#39;1_2_4_1_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+New Projects have the following Required Fields
+<ul id="fold1_2_4_1_1" style="position: absolute; visibility: hidden;"><li>Title (45)
+
+</li>
+<li>Subtitle (75)
+
+</li>
+<li><span id="show1_2_4_1_1_1" class="foldclosed" onclick="show_folder(&#39;1_2_4_1_1_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_1_1_1" class="foldopened" onclick="hide_folder(&#39;1_2_4_1_1_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Category
+<ul id="fold1_2_4_1_1_1" style="position: absolute; visibility: hidden;"><li>Categories need to be selected from the existing list of Categroeis within RSR
+
+</li>
+
+</ul>
+</li>
+<li>Summary of Project Plan (400)
+
+</li>
+<li>Sustainability
+
+</li>
+<li>Overview of Goals (600)
+
+</li>
+<li><span id="show1_2_4_1_1_2" class="foldclosed" onclick="show_folder(&#39;1_2_4_1_1_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_1_1_2" class="foldopened" onclick="hide_folder(&#39;1_2_4_1_1_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Partnership Information
+<ul id="fold1_2_4_1_1_2" style="position: absolute; visibility: hidden;"><li>This is the Partner Type of the Creating organsiation
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Benchmarks can only be completed once a Project has been saved and linked to its categories
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_4_2" class="foldclosed" onclick="show_folder(&#39;1_2_4_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2" class="foldopened" onclick="hide_folder(&#39;1_2_4_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Process
+<ul id="fold1_2_4_2" style="position: absolute; visibility: hidden;"><li>A new project is created here: http://akvo.org/rsr/admin/rsr/project/add/
+
+</li>
+<li>The project is given a Title of 45 characters or less
+
+</li>
+<li>The project is given a Subtitle of 75 characters or less
+
+</li>
+<li><span id="show1_2_4_2_1" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_1" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+The project is given a Status
+<ul id="fold1_2_4_2_1" style="position: absolute; visibility: hidden;"><li>Needs Funding
+
+</li>
+<li>Active
+
+</li>
+<li>Completed
+
+</li>
+<li>Cancelled
+
+</li>
+<li>Archived
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_4_2_2" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_2" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+The project is allocated to one or more RSR Categories
+<ul id="fold1_2_4_2_2" style="position: absolute; visibility: hidden;"><li>Categories are linked to Focus Areas
+
+</li>
+<li><span id="show1_2_4_2_2_1" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_2_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_2_1" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_2_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Akvo RSR currently has 5 Focus Areas
+<ul id="fold1_2_4_2_2_1" style="position: absolute; visibility: hidden;"><li>Water &amp; Sanitation
+
+</li>
+<li>Education
+
+</li>
+<li>Economic Development
+
+</li>
+<li>Healthcare
+
+</li>
+<li>IT and Communication
+
+</li>
+
+</ul>
+</li>
+<li>Categories determine which indicators/benchmarks are available
+
+</li>
+
+</ul>
+</li>
+<li>The project is given a Summary of Project Plan of 400 characters or less
+
+</li>
+<li>The user uploads an image file for the project
+
+</li>
+<li><span id="show1_2_4_2_3" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_3&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_3" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_3&#39;)" style="visibility: hidden; position: absolute;">-</span>
+The image is given a caption
+<ul id="fold1_2_4_2_3" style="position: absolute; visibility: hidden;"><li>The caption is currently not published anywhere and so is not necessary to be included
+
+</li>
+
+</ul>
+</li>
+<li>The project is given a Background of 1000 characters or less
+
+</li>
+<li>The project is given a Project Plan
+
+</li>
+<li>The project is given a Current Status of 600 characters or less
+
+</li>
+<li>The project is given a Sustainability
+
+</li>
+<li><span id="show1_2_4_2_4" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_4&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_4" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_4&#39;)" style="visibility: hidden; position: absolute;">-</span>
+The project has 2 meta info options which are not published
+<ul id="fold1_2_4_2_4" style="position: absolute; visibility: hidden;"><li><span id="show1_2_4_2_4_1" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_4_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_4_1" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_4_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Project Rating
+<ul id="fold1_2_4_2_4_1" style="position: absolute; visibility: hidden;"><li>The project rating is a number
+
+</li>
+<li>The project rating is currently not used
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_4_2_4_2" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_4_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_4_2" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_4_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Notes
+<ul id="fold1_2_4_2_4_2" style="position: absolute; visibility: hidden;"><li>Notes can be used by Admin and other RSR Admin users to comment on projects
+
+</li>
+<li>Notes are not published and are only visible via the Admin
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_4_2_5" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_5&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_5" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_5&#39;)" style="visibility: hidden; position: absolute;">-</span>
+The project is allocated a currency
+<ul id="fold1_2_4_2_5" style="position: absolute; visibility: hidden;"><li>Projects can be in Euro €
+
+</li>
+<li>Projects can be in Dollars $
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_4_2_6" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_6&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_6" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_6&#39;)" style="visibility: hidden; position: absolute;">-</span>
+The project is given a Date Request Posted
+<ul id="fold1_2_4_2_6" style="position: absolute; visibility: hidden;"><li><span id="show1_2_4_2_6_1" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_6_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_6_1" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_6_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+This field is used in different ways by different users
+<ul id="fold1_2_4_2_6_1" style="position: absolute; visibility: hidden;"><li>This field is sometimes used as the starting date of the project
+
+</li>
+<li>This field is sometimes used as the posting date of the project
+
+</li>
+<li>This field is sometimes used as the date the project was funded
+
+</li>
+
+</ul>
+</li>
+<li>This field should be standardised to have a single purpose
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_4_2_7" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_7&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_7" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_7&#39;)" style="visibility: hidden; position: absolute;">-</span>
+The project is given a Date Complete
+<ul id="fold1_2_4_2_7" style="position: absolute; visibility: hidden;"><li>This should be the expected completion date
+
+</li>
+<li>This should be updated to the actual closing date when the project is completed
+
+</li>
+
+</ul>
+</li>
+<li>The project is given an Overview of Goals of 600 characters or less
+
+</li>
+<li>The project is given up to 8 goals of 100 characters or less each
+
+</li>
+<li><span id="show1_2_4_2_8" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_8&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_8" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_8&#39;)" style="visibility: hidden; position: absolute;">-</span>
+The project is given Budget Items
+<ul id="fold1_2_4_2_8" style="position: absolute; visibility: hidden;"><li>Each budget item consists of a Label and an amount
+
+</li>
+<li>There is an Other Label which allows for Customised Budget items
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_4_2_9" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_9&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_9" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_9&#39;)" style="visibility: hidden; position: absolute;">-</span>
+The project is given Links
+<ul id="fold1_2_4_2_9" style="position: absolute; visibility: hidden;"><li>Links can be to internal Akvopedia pages
+
+</li>
+<li>Links can be to external websites
+
+</li>
+<li><span id="show1_2_4_2_9_1" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_9_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_9_1" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_9_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Links should direct users to additional relevant information
+<ul id="fold1_2_4_2_9_1" style="position: absolute; visibility: hidden;"><li>This could be about the project
+
+</li>
+<li>This could be about the participating organisations
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_4_2_10" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_10&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_10" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_10&#39;)" style="visibility: hidden; position: absolute;">-</span>
+The project is given all additional project partners
+<ul id="fold1_2_4_2_10" style="position: absolute; visibility: hidden;"><li><p><span id="show1_2_4_2_10_1" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_10_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_10_1" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_10_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Each partner is allocated a Type
+</p><ul id="fold1_2_4_2_10_1" style="position: absolute; visibility: hidden;"><li>Field Partner
+
+</li>
+<li>Funding Partner
+
+</li>
+<li>Sponsor Partner
+
+</li>
+<li>Support Partner
+
+</li>
+
+</ul><p>Funding Partners can be allocated an amount that they have contributed ot the project
+</p><p><span id="show1_2_4_2_10_2" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_10_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_10_2" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_10_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Field Partners can be given a Partner Type Extra
+</p><ul id="fold1_2_4_2_10_2" style="position: absolute; visibility: hidden;"><li>Alliance
+
+</li>
+<li>Knowledge
+
+</li>
+<li>Network
+
+</li>
+
+</ul><p><span id="show1_2_4_2_10_3" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_10_3&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_10_3" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_10_3&#39;)" style="visibility: hidden; position: absolute;">-</span>
+IATI Activity IDs can be added per partner
+</p><ul id="fold1_2_4_2_10_3" style="position: absolute; visibility: hidden;"><li>This is the ID the Partner has allocated or been allocated to the project within the IATI Registry
+
+</li>
+
+</ul><p><span id="show1_2_4_2_10_4" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_10_4&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_10_4" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_10_4&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Internal IDs can be added per partner
+</p><ul id="fold1_2_4_2_10_4" style="position: absolute; visibility: hidden;"><li>This is any identifier the Partner might use to identify this project
+
+</li>
+
+</ul><p>An IATI URL can be added where the Published IATI information from this partner for this project can be found
+</p></li>
+</ul>
+</li>
+<li><span id="show1_2_4_2_11" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_11&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_11" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_11&#39;)" style="visibility: hidden; position: absolute;">-</span>
+The project is given Locations
+<ul id="fold1_2_4_2_11" style="position: absolute; visibility: hidden;"><li>If a project has a location, then one and only one location must be a Primary Location
+
+</li>
+<li><span id="show1_2_4_2_11_1" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_11_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_11_1" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_11_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Locations consist of multiple parts
+<ul id="fold1_2_4_2_11_1" style="position: absolute; visibility: hidden;"><li><span id="show1_2_4_2_11_1_1" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_11_1_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_11_1_1" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_11_1_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Coordinates
+<ul id="fold1_2_4_2_11_1_1" style="position: absolute; visibility: hidden;"><li>Latitude
+
+</li>
+<li>Longitude
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_4_2_11_1_2" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_11_1_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_11_1_2" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_11_1_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Address
+<ul id="fold1_2_4_2_11_1_2" style="position: absolute; visibility: hidden;"><li>City
+
+</li>
+<li>State
+
+</li>
+<li>Country
+
+</li>
+<li>Address 1
+
+</li>
+<li>Address 2
+
+</li>
+<li>Postcode
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Coordinate information is used by RSR to put pins onto maps
+
+</li>
+<li>The Address information is used to display on the project page and for filtering of data
+
+</li>
+<li>Additional locations can be added to projects
+
+</li>
+
+</ul>
+</li>
+<li>The project must then be saved
+
+</li>
+<li><span id="show1_2_4_2_12" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_12&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_12" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_12&#39;)" style="visibility: hidden; position: absolute;">-</span>
+The project can then have Benchmarks populated
+<ul id="fold1_2_4_2_12" style="position: absolute; visibility: hidden;"><li><span id="show1_2_4_2_12_1" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_12_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_12_1" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_12_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Each benchmark consists of an Indicator
+<ul id="fold1_2_4_2_12_1" style="position: absolute; visibility: hidden;"><li>Indicators are linked to Categories
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_4_2_12_2" class="foldclosed" onclick="show_folder(&#39;1_2_4_2_12_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_4_2_12_2" class="foldopened" onclick="hide_folder(&#39;1_2_4_2_12_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Each Benchmark also has a field for a number to be entered
+<ul id="fold1_2_4_2_12_2" style="position: absolute; visibility: hidden;"><li>The number indicates the target to be reached for the project
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_5" class="foldclosed" onclick="show_folder(&#39;1_2_5&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_5" class="foldopened" onclick="hide_folder(&#39;1_2_5&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Project Updates
+<ul id="fold1_2_5" style="position: absolute; visibility: hidden;"><li><span id="show1_2_5_1" class="foldclosed" onclick="show_folder(&#39;1_2_5_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_5_1" class="foldopened" onclick="hide_folder(&#39;1_2_5_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Requirements
+<ul id="fold1_2_5_1" style="position: absolute; visibility: hidden;"><li>Updates can only be added to Published Projects
+
+</li>
+<li>Updates can only be added by authorised RSR users
+
+</li>
+<li>Update users must belong to one of the Partners linked to a project
+
+</li>
+<li>Updates can be entered via the Web Interface or via the Admin
+
+</li>
+<li>Updates can be modified for the first 30 minutes after publishing via the Web Interface
+
+</li>
+<li>Updates can be edited afterwards via the RSR Admin for those users with sufficient permissions
+
+</li>
+<li><span id="show1_2_5_1_1" class="foldclosed" onclick="show_folder(&#39;1_2_5_1_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_5_1_1" class="foldopened" onclick="hide_folder(&#39;1_2_5_1_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Updates support Markdown Formatting
+<ul id="fold1_2_5_1_1" style="position: absolute; visibility: hidden;"><li>We currently have no editor for Markdown Formatting
+
+</li>
+<li>Formatting must be known to the user
+
+</li>
+<li>We have need of a WYSIWYG editor for Update entry
+
+</li>
+
+</ul>
+</li>
+<li>One image can be added per Update
+
+</li>
+<li><span id="show1_2_5_1_2" class="foldclosed" onclick="show_folder(&#39;1_2_5_1_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_5_1_2" class="foldopened" onclick="hide_folder(&#39;1_2_5_1_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Videos can be embedded from a selection of Hosting providers
+<ul id="fold1_2_5_1_2" style="position: absolute; visibility: hidden;"><li>YouTube
+
+</li>
+<li>Vimeo
+
+</li>
+<li>Blip
+
+</li>
+
+</ul>
+</li>
+<li>Media can be placed above or below the content of the Update
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_5_2" class="foldclosed" onclick="show_folder(&#39;1_2_5_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_5_2" class="foldopened" onclick="hide_folder(&#39;1_2_5_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Process
+<ul id="fold1_2_5_2" style="position: absolute; visibility: hidden;"><li><p>User navigates to the Project to be updated in RSR
+</p><p>User clicks to Add an update to the project
+</p><p>The User is prompted to login if not already
+</p><p><span id="show1_2_5_2_1" class="foldclosed" onclick="show_folder(&#39;1_2_5_2_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_5_2_1" class="foldopened" onclick="hide_folder(&#39;1_2_5_2_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+RSR checks to ensure that the user has the required permissions to update the project
+</p><ul id="fold1_2_5_2_1" style="position: absolute; visibility: hidden;"><li>If not, then RSR presents the user with the Forbidden page (403) page
+
+</li>
+
+</ul><p><span id="show1_2_5_2_2" class="foldclosed" onclick="show_folder(&#39;1_2_5_2_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_5_2_2" class="foldopened" onclick="hide_folder(&#39;1_2_5_2_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+The user then enters the Update information
+</p><ul id="fold1_2_5_2_2" style="position: absolute; visibility: hidden;"><li>Title (50)
+
+</li>
+<li>Text
+
+</li>
+<li>Photo
+
+</li>
+<li>Photo Caption (75)
+
+</li>
+<li>Photo Credit (25)
+
+</li>
+<li>Video URL
+
+</li>
+<li>Video Caption (75)
+
+</li>
+<li>Video Credit (25)
+
+</li>
+
+</ul><p>The user selects whether the media should be placed at the top or the bottom of the update
+</p><p>The update is saved
+</p><p>The user is informed that they have 30 minutes to edit the update in case anything needs to be changed
+</p></li>
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_6" class="foldclosed" onclick="show_folder(&#39;1_2_6&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_6" class="foldopened" onclick="hide_folder(&#39;1_2_6&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Maps
+<ul id="fold1_2_6" style="position: absolute; visibility: hidden;"><li><span id="show1_2_6_1" class="foldclosed" onclick="show_folder(&#39;1_2_6_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_6_1" class="foldopened" onclick="hide_folder(&#39;1_2_6_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Requirements
+<ul id="fold1_2_6_1" style="position: absolute; visibility: hidden;"><li>Displaying object location coordinates
+
+</li>
+<li>Zooming to an appropriate level for the pins and area displayed on the map
+
+</li>
+<li>Displaying multiple pins per object when appropriate
+
+</li>
+<li>Zooming available to users
+
+</li>
+<li>Navigation of the map available to users
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_6_2" class="foldclosed" onclick="show_folder(&#39;1_2_6_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_6_2" class="foldopened" onclick="hide_folder(&#39;1_2_6_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Process
+<ul id="fold1_2_6_2" style="position: absolute; visibility: hidden;"><li>User loads a page within RSR that contains a map
+
+</li>
+<li><span id="show1_2_6_2_1" class="foldclosed" onclick="show_folder(&#39;1_2_6_2_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_6_2_1" class="foldopened" onclick="hide_folder(&#39;1_2_6_2_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+The map sources the data from the RSR Database
+<ul id="fold1_2_6_2_1" style="position: absolute; visibility: hidden;"><li>This is currently obtained from the RSR API
+
+</li>
+
+</ul>
+</li>
+<li>The map displays the pins in the correct Geolocations for the user to see
+
+</li>
+<li>The map is styled as per the settings and Google Maps default
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_7" class="foldclosed" onclick="show_folder(&#39;1_2_7&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_7" class="foldopened" onclick="hide_folder(&#39;1_2_7&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Notifications
+<ul id="fold1_2_7" style="position: absolute; visibility: hidden;"><li>Not Implemented
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_8" class="foldclosed" onclick="show_folder(&#39;1_2_8&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_8" class="foldopened" onclick="hide_folder(&#39;1_2_8&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Donations
+<ul id="fold1_2_8" style="position: absolute; visibility: hidden;"><li><span id="show1_2_8_1" class="foldclosed" onclick="show_folder(&#39;1_2_8_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_8_1" class="foldopened" onclick="hide_folder(&#39;1_2_8_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Requirements
+<ul id="fold1_2_8_1" style="position: absolute; visibility: hidden;"><li>Donations to individual projects need to be made via the Website
+
+</li>
+<li>Donors should not have to register on Akvo.org to donate
+
+</li>
+<li>Donors should have the option of donating via PayPal or iDeal
+
+</li>
+<li>Donors should have the option of donating annonymously
+
+</li>
+<li>The donation process should be secure
+
+</li>
+<li>Donors should be returned to their starting page after the donation process has been completed
+
+</li>
+<li>Donors should be able to donate up to the total value of the project
+
+</li>
+<li>Donors should be able to compelte project funding via their donations
+
+</li>
+<li>Donation details should only be visible to Authorised Akvo Administrators
+
+</li>
+<li>Donors should receive confirmations once donations have been completed
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_8_2" class="foldclosed" onclick="show_folder(&#39;1_2_8_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_8_2" class="foldopened" onclick="hide_folder(&#39;1_2_8_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Process
+<ul id="fold1_2_8_2" style="position: absolute; visibility: hidden;"><li>Users select a Project they would like to Donate to
+
+</li>
+<li>Users click on the Donate button on the right hand side of the project
+
+</li>
+<li><span id="show1_2_8_2_1" class="foldclosed" onclick="show_folder(&#39;1_2_8_2_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_8_2_1" class="foldopened" onclick="hide_folder(&#39;1_2_8_2_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Users choose which method they would like to donate using
+<ul id="fold1_2_8_2_1" style="position: absolute; visibility: hidden;"><li><span id="show1_2_8_2_1_1" class="foldclosed" onclick="show_folder(&#39;1_2_8_2_1_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_8_2_1_1" class="foldopened" onclick="hide_folder(&#39;1_2_8_2_1_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+PayPal
+<ul id="fold1_2_8_2_1_1" style="position: absolute; visibility: hidden;"><li><p>User enters the amount of donation up to the amount still required by the project
+</p><p>User completes their name and email information
+</p><p>User selects if they would like to remain annonymous or not
+</p><p>User is directed to PayPal to complete their payment
+</p><p>Once the process is complete, the user is directed to the Project page
+</p><p>The user receives an email from RSR once the payment has been confirmed and the donation is accepted
+</p><p>If the process is unsucessful, the donation is cancelled and the user receives a failure notification
+</p></li>
+</ul>
+</li>
+<li><span id="show1_2_8_2_1_2" class="foldclosed" onclick="show_folder(&#39;1_2_8_2_1_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_8_2_1_2" class="foldopened" onclick="hide_folder(&#39;1_2_8_2_1_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+iDeal
+<ul id="fold1_2_8_2_1_2" style="position: absolute; visibility: hidden;"><li><p>User enters the amount of the donation up to the amount still required by the project
+</p><p>User completes their name and email information
+</p><p>User selects if they would like to remain annonymous or not
+</p><p>User is directed to iDeal to complete their payment
+</p><p>Once the process is complete, the user is directed to the Project page
+</p><p>The user receives an email from RSR once the payment has been confirmed and the donation is accepted
+</p><p>If the process is unsuccessful, the donation is cancelled and the user receives a failure notification
+</p></li>
+</ul>
+</li>
+<li><span id="show1_2_8_2_1_3" class="foldclosed" onclick="show_folder(&#39;1_2_8_2_1_3&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_8_2_1_3" class="foldopened" onclick="hide_folder(&#39;1_2_8_2_1_3&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Becoming a Funding Partner
+<ul id="fold1_2_8_2_1_3" style="position: absolute; visibility: hidden;"><li><p>User downloads the Akvo Donation Form available here: http://www.akvo.org/web/sites/default/files/Akvo_donation.pdf
+</p><p>User fills in the form using Adobe Acrobat Reader
+</p><p>User transfers the total donation amount to the bank account mentioned in the form
+</p><p>Once the donation is confirmed the Donor is setup as a Funder on the Project
+</p><p>Information on how to embed projects into websites is provided to the user
+</p><p>The Project Partnners are notified and the funds are transferred from Akvo to the Receiving party on the Project
+</p></li>
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_9" class="foldclosed" onclick="show_folder(&#39;1_2_9&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_9" class="foldopened" onclick="hide_folder(&#39;1_2_9&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Version Control
+<ul id="fold1_2_9" style="position: absolute; visibility: hidden;"><li>Not Implemented
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_10" class="foldclosed" onclick="show_folder(&#39;1_2_10&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_10" class="foldopened" onclick="hide_folder(&#39;1_2_10&#39;)" style="visibility: hidden; position: absolute;">-</span>
+API
+<ul id="fold1_2_10" style="position: absolute; visibility: hidden;"><li><span id="show1_2_10_1" class="foldclosed" onclick="show_folder(&#39;1_2_10_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_10_1" class="foldopened" onclick="hide_folder(&#39;1_2_10_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Requirements
+<ul id="fold1_2_10_1" style="position: absolute; visibility: hidden;"><li><span id="show1_2_10_1_1" class="foldclosed" onclick="show_folder(&#39;1_2_10_1_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_10_1_1" class="foldopened" onclick="hide_folder(&#39;1_2_10_1_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Read
+<ul id="fold1_2_10_1_1" style="position: absolute; visibility: hidden;"><li><p>Information within the Akvo RSR DB should be accessible via an API
+</p><p>Project information in particular is important to be accessible
+</p><p>Projects should be grouped into a data set with all linked records and data allowing a single call for all related project information
+</p><p>No user information should be accessible without a valid API key
+</p><p>API Keys should only permit access to secure data for the owner organisation
+</p><p>The API should support JSON and XML Calls
+</p></li>
+</ul>
+</li>
+<li><span id="show1_2_10_1_2" class="foldclosed" onclick="show_folder(&#39;1_2_10_1_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_10_1_2" class="foldopened" onclick="hide_folder(&#39;1_2_10_1_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Write
+<ul id="fold1_2_10_1_2" style="position: absolute; visibility: hidden;"><li>It should be possible to create new DB objects via the API
+
+</li>
+<li>New objects must be created by an authorised API user
+
+</li>
+<li>Projects should have all attributed data included within the call to create
+
+</li>
+<li>The API should accept directly or indireectly the IATI XML File Format
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Process
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_11" class="foldclosed" onclick="show_folder(&#39;1_2_11&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_11" class="foldopened" onclick="hide_folder(&#39;1_2_11&#39;)" style="visibility: hidden; position: absolute;">-</span>
+RSS Feeds
+<ul id="fold1_2_11" style="position: absolute; visibility: hidden;"><li><span id="show1_2_11_1" class="foldclosed" onclick="show_folder(&#39;1_2_11_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_11_1" class="foldopened" onclick="hide_folder(&#39;1_2_11_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Requirements
+<ul id="fold1_2_11_1" style="position: absolute; visibility: hidden;"><li>RSS Feeds should contain complete information about DVB Objects
+
+</li>
+<li>RSS Feeds should contain links and images included within the data
+
+</li>
+<li>RSS Entries should be formatted to display correctly in RSS Readers
+
+</li>
+<li>RSS Feeds should deliver content in close to real-time
+
+</li>
+<li>RSS Feeds should be configurable to link back to Partnersites
+
+</li>
+<li>RSS Feed links should be displayed on relevant RSR Pages
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_11_2" class="foldclosed" onclick="show_folder(&#39;1_2_11_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_11_2" class="foldopened" onclick="hide_folder(&#39;1_2_11_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Process
+<ul id="fold1_2_11_2" style="position: absolute; visibility: hidden;"><li>The user collects the RSS Feed link from the relevant RSR Page
+
+</li>
+<li>The Link can be used in an appropriate browser or RSS Reader
+
+</li>
+<li>The information should be delivered to the user by the RSR Server
+
+</li>
+<li>The user should be able to direct to the originating RSR Object via the Feed Entry
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_12" class="foldclosed" onclick="show_folder(&#39;1_2_12&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_12" class="foldopened" onclick="hide_folder(&#39;1_2_12&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Administration
+<ul id="fold1_2_12" style="position: absolute; visibility: hidden;"><li><span id="show1_2_12_1" class="foldclosed" onclick="show_folder(&#39;1_2_12_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_12_1" class="foldopened" onclick="hide_folder(&#39;1_2_12_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Requirements
+<ul id="fold1_2_12_1" style="position: absolute; visibility: hidden;"><li><span id="show1_2_12_1_1" class="foldclosed" onclick="show_folder(&#39;1_2_12_1_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_12_1_1" class="foldopened" onclick="hide_folder(&#39;1_2_12_1_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Permissions
+<ul id="fold1_2_12_1_1" style="position: absolute; visibility: hidden;"><li>Administration of RSR should be possible by both Organisation and Akvo Administrators
+
+</li>
+<li>The set of functions available to Organisation Administrators should be limited
+
+</li>
+<li>Administration permissions should be divisible into Roles
+
+</li>
+<li>Roles should be allocated to Admin users
+
+</li>
+<li>Individual Permissions should be assignable to roles
+
+</li>
+<li>An additional Role of Superuser should be available for more complex operations
+
+</li>
+<li>No standard user should have the Superuser role
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_12_1_2" class="foldclosed" onclick="show_folder(&#39;1_2_12_1_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_12_1_2" class="foldopened" onclick="hide_folder(&#39;1_2_12_1_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Users
+<ul id="fold1_2_12_1_2" style="position: absolute; visibility: hidden;"><li>User Administration within Organisations should be possible for Organisation Administrators
+
+</li>
+<li>Akvo Administrators should be able to perform user Administration for all users
+
+</li>
+<li>Users information should not be changed without the users permission
+
+</li>
+<li>New users should not be entered using the Admin
+
+</li>
+<li>New users need to be confirmed via the Admin
+
+</li>
+<li><span id="show1_2_12_1_2_1" class="foldclosed" onclick="show_folder(&#39;1_2_12_1_2_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_12_1_2_1" class="foldopened" onclick="hide_folder(&#39;1_2_12_1_2_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+New user notifications should be deliveed automatically upon confirmation by the system
+<ul id="fold1_2_12_1_2_1" style="position: absolute; visibility: hidden;"><li>Not implemented
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_12_1_3" class="foldclosed" onclick="show_folder(&#39;1_2_12_1_3&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_12_1_3" class="foldopened" onclick="hide_folder(&#39;1_2_12_1_3&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Counters
+<ul id="fold1_2_12_1_3" style="position: absolute; visibility: hidden;"><li>Counters for projects and other objects should be visible via the Admin
+
+</li>
+<li>View Counters should show the number of visitors to the object
+
+</li>
+<li><span id="show1_2_12_1_3_1" class="foldclosed" onclick="show_folder(&#39;1_2_12_1_3_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_12_1_3_1" class="foldopened" onclick="hide_folder(&#39;1_2_12_1_3_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+View counters should not count visitors using the same Mac Address
+<ul id="fold1_2_12_1_3_1" style="position: absolute; visibility: hidden;"><li>Other identifiers could be used to identify individual users
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_12_1_4" class="foldclosed" onclick="show_folder(&#39;1_2_12_1_4&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_12_1_4" class="foldopened" onclick="hide_folder(&#39;1_2_12_1_4&#39;)" style="visibility: hidden; position: absolute;">-</span>
+RSR
+<ul id="fold1_2_12_1_4" style="position: absolute; visibility: hidden;"><li>RSR Content should all be Administered and Configurable via the Admin
+
+</li>
+<li>All Projects and User entered data should be accessible to Organsiation Admin
+
+</li>
+<li>All fixed data, such as Benchmarks, Focus Areas etc, should only be accessible to Akvo Admin
+
+</li>
+<li>Each record should be editable and saveable 
+
+</li>
+<li>New records should be addable for user generated content
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_12_2" class="foldclosed" onclick="show_folder(&#39;1_2_12_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_12_2" class="foldopened" onclick="hide_folder(&#39;1_2_12_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Process
+<ul id="fold1_2_12_2" style="position: absolute; visibility: hidden;"><li>User logs into RSR Admin at http://akvo.org/rsr/admin
+
+</li>
+<li>User is presented with the Admin homepage indicating all of the sections they have access to
+
+</li>
+<li>Each section allows Admin of an Object Type or set
+
+</li>
+<li><span id="show1_2_12_2_1" class="foldclosed" onclick="show_folder(&#39;1_2_12_2_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_12_2_1" class="foldopened" onclick="hide_folder(&#39;1_2_12_2_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+It is possible to add new objects but this should only be performed for limited objects
+<ul id="fold1_2_12_2_1" style="position: absolute; visibility: hidden;"><li><span id="show1_2_12_2_1_1" class="foldclosed" onclick="show_folder(&#39;1_2_12_2_1_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_12_2_1_1" class="foldopened" onclick="hide_folder(&#39;1_2_12_2_1_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+All Admin
+<ul id="fold1_2_12_2_1_1" style="position: absolute; visibility: hidden;"><li>Partner Sites
+
+</li>
+<li>Projects
+
+</li>
+<li>Updates
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2_12_2_1_2" class="foldclosed" onclick="show_folder(&#39;1_2_12_2_1_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_2_12_2_1_2" class="foldopened" onclick="hide_folder(&#39;1_2_12_2_1_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Akvo Admin
+<ul id="fold1_2_12_2_1_2" style="position: absolute; visibility: hidden;"><li>Benchmark Names
+
+</li>
+<li>Budget Item Labels
+
+</li>
+<li>Categories
+
+</li>
+<li>Countries
+
+</li>
+<li>Focus Areas
+
+</li>
+<li>Organisations
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_3" class="foldclosed" onclick="show_folder(&#39;1_3&#39;)" style="position: relative; visibility: visible;">+</span> <span id="hide1_3" class="foldopened" onclick="hide_folder(&#39;1_3&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Modules
+<ul id="fold1_3" style="position: absolute; visibility: hidden;"><li>Admin
+
+</li>
+<li>Donations
+
+</li>
+<li>Maps
+
+</li>
+<li>Partner Sites
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4" class="foldclosed" onclick="show_folder(&#39;1_4&#39;)" style="position: relative; visibility: visible;">+</span> <span id="hide1_4" class="foldopened" onclick="hide_folder(&#39;1_4&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Technology
+<ul id="fold1_4" style="position: absolute; visibility: hidden;"><li><span id="show1_4_1" class="foldclosed" onclick="show_folder(&#39;1_4_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_4_1" class="foldopened" onclick="hide_folder(&#39;1_4_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Operating System
+<ul id="fold1_4_1" style="position: absolute; visibility: hidden;"><li><span id="show1_4_1_1" class="foldclosed" onclick="show_folder(&#39;1_4_1_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_4_1_1" class="foldopened" onclick="hide_folder(&#39;1_4_1_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Ubuntu 12.04
+<ul id="fold1_4_1_1" style="position: absolute; visibility: hidden;"><li>We are currently using Ubuntu for the OS on our servers.
+
+</li>
+<li>We have no current plans to change this setup.
+
+</li>
+<li>We will continue to update Ubuntu at appropriate times when new versions are released.
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_2" class="foldclosed" onclick="show_folder(&#39;1_4_2&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_4_2" class="foldopened" onclick="hide_folder(&#39;1_4_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Web Server
+<ul id="fold1_4_2" style="position: absolute; visibility: hidden;"><li>Configuration
+
+</li>
+<li>Functionality
+
+</li>
+<li>Nginx
+
+</li>
+<li><span id="show1_4_2_1" class="foldclosed" onclick="show_folder(&#39;1_4_2_1&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_4_2_1" class="foldopened" onclick="hide_folder(&#39;1_4_2_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Apache
+<ul id="fold1_4_2_1" style="position: absolute; visibility: hidden;"><li>We are currently using apache2 as a web server.
+
+</li>
+<li>We intend to migrate to nginx shortly.
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_3" class="foldclosed" onclick="show_folder(&#39;1_4_3&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_4_3" class="foldopened" onclick="hide_folder(&#39;1_4_3&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Database
+<ul id="fold1_4_3" style="position: absolute; visibility: hidden;"><li>Structure
+
+</li>
+<li>Models
+
+</li>
+<li>Tables
+
+</li>
+<li>MySQL
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4_4" class="foldclosed" onclick="show_folder(&#39;1_4_4&#39;)" style="position: absolute; visibility: hidden;">+</span> <span id="hide1_4_4" class="foldopened" onclick="hide_folder(&#39;1_4_4&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Application Layer
+<ul id="fold1_4_4" style="position: absolute; visibility: hidden;"><li>Configuration
+
+</li>
+<li>Libraries
+
+</li>
+<li>Python/Django
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+
+</ul><script type="text/javascript">
+fold_document();
+</script>
+
+
+</body></html>
