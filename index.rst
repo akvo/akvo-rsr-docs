@@ -12,7 +12,6 @@ Contents:
 .. toctree::
    :maxdepth: 5
 
-   docs/development
-   docs/functionality
-   docs/specifications
-   docs/user_processes
+   docs/development/overview
+   docs/functionality/overview
+   docs/user_processes/overview
