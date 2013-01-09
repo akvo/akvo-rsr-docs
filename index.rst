@@ -12,7 +12,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   development
-   functionality
-   specifications
-   user_processes
+   docs/development
+   docs/functionality
+   docs/specifications
+   docs/user_processes
