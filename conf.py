@@ -40,7 +40,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'akvo-rsr-docs'
+project = u'Akvo RSR'
 copyright = u'2012, Akvo.org'
 
 # The version info for the project you're documenting, acts as replacement for
