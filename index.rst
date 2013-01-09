@@ -10,7 +10,7 @@ Welcome to documentation site for Akvo RSR!
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 5
 
    docs/development
    docs/functionality
